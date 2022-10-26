@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/*
+ * $Id: temp-defs.xml 1332830 2012-05-01 21:09:05Z nlebas $
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+-->
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<!-- Definitions for Tiles documentation -->
+
+<tiles-definitions>
+
+    <!--### 레이아웃 설정 시작 ###-->
+    <!-- 에러 레이아웃 -->
+    <definition name="layout-error" template="/WEB-INF/jsp/com/frame/tiles/layouts/layout-error.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/menu/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/com/frame/tiles/menu/footer.jsp"/>
+    </definition>
+
+    <!-- 화면용 레이아웃(상단내비게이션, 좌측내비게이션, 화면) -->
+    <definition name="layout-main" template="/WEB-INF/jsp/com/frame/tiles/layouts/layout-main.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/menu/header.jsp"/>
+        <put-attribute name="header-specific" value="/WEB-INF/jsp/com/frame/tiles/menu/header-specific.jsp"/>
+        <put-attribute name="navbar" value="/WEB-INF/jsp/com/frame/tiles/menu/navbar.jsp"/>
+        <put-attribute name="sidebar" value="/WEB-INF/jsp/com/frame/tiles/menu/sidebar.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/com/frame/tiles/menu/footer.jsp"/>
+        <put-attribute name="userInfo" value="/WEB-INF/jsp/com/frame/tiles/menu/userInfo.jsp"/>
+    </definition>
+
+    <!-- CES 화면용 레이아웃(상단내비게이션, 좌측내비게이션, 화면) -->
+    <definition name="layout-ces-main" extends="layout-main">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="header-specific" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header-specific.jsp"/>
+        <put-attribute name="userInfo" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/userInfo.jsp"/>
+    </definition>
+
+    <!-- NGS 화면용 레이아웃(상단내비게이션, 좌측내비게이션, 화면) -->
+    <definition name="layout-ngs-main" extends="layout-main">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ngs/menu/header.jsp"/>
+        <put-attribute name="header-specific" value="/WEB-INF/jsp/com/frame/tiles/ngs/menu/header-specific.jsp"/>
+        <put-attribute name="userInfo" value="/WEB-INF/jsp/com/frame/tiles/ngs/menu/userInfo.jsp"/>
+    </definition>
+
+    <!-- 팝업 레이아웃 -->
+    <definition name="layout-popup" template="/WEB-INF/jsp/com/frame/tiles/layouts/layout-popup.jsp" >
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/menu/header.jsp"/>
+        <put-attribute name="header-specific" value=""/>
+    </definition>
+
+    <!-- CES 팝업 레이아웃 -->
+    <definition name="layout-ces-popup" extends="layout-popup" >
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="header-specific" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header-specific.jsp"/>
+    </definition>
+
+    <!-- NGS 팝업 레이아웃 -->
+    <definition name="layout-ngs-popup" extends="layout-popup" >
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ngs/menu/header.jsp"/>
+        <put-attribute name="header-specific" value="/WEB-INF/jsp/com/frame/tiles/ngs/menu/header-specific.jsp"/>
+    </definition>
+
+    <!-- 탭 레이아웃 -->
+    <definition name="layout-tab" template="/WEB-INF/jsp/com/frame/tiles/layouts/layout-tab.jsp" />
+
+    <!-- 클립레포트 레이아웃 -->
+    <definition name="layout-clipreport" template="/WEB-INF/jsp/com/frame/tiles/layouts/layout-clipreport.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/clipreport/header-clipreport.jsp"/>
+    </definition>
+
+    <!-- 빈 레이아웃 (메일, 전자결재 등 동적으로 포함될 html) -->
+    <definition name="layout-template" template="/WEB-INF/jsp/com/frame/tiles/layouts/layout-template.jsp"/>
+    <!--### 레이아웃설정 끝 ###-->
+
+	<!--### 예외 ###-->
+	<!-- DNA -->
+    <definition name="dna/order/*" template="/WEB-INF/jsp/dna/order/layout-dna-main.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/dna/order/header.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/jsp/dna/order/{1}.jsp"/>
+    </definition>
+
+    <!-- 로그인 -->
+    <definition name="com/user/loginForm" template="/WEB-INF/jsp/com/frame/tiles/layouts/layout-login.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/menu/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/com/frame/tiles/menu/footer.jsp"/>
+    </definition>
+
+    <!-- 비밀번호 찾기 -->
+    <definition name="com/user/pwdInquiryForm" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/com/frame/tiles/layouts/layout-pwdInquiry.jsp"/>
+    </definition>
+
+    <!-- 대시보드 -->
+    <definition name="main" extends="layout-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/com/frame/tiles/menu/main.jsp"/>
+    </definition>
+    <definition name="comm/mainForm" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/comm/mainForm.jsp"/>
+    </definition>
+
+    <!-- 클립리포트
+    <definition name="com/frame/clipreport/clipreportPopup" template="/WEB-INF/jsp/com/frame/clipreport/clipreportPopup.jsp"/>
+
+    <definition name="com/frame/clipreport/*" extends="layout-clipreport">
+        <put-attribute name="main" value="/WEB-INF/jsp/com/frame/clipreport/{1}.jsp"/>
+    </definition>
+    -->
+
+	<!-- NGS -->
+    <definition name="ngs/com/retrievePerformUnusualTab" extends="layout-tab">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrievePerformUnusualPopup.jsp"/>
+    </definition>
+    <definition name="ngs/log/retrieveLogBizMemoRegistPopup" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/log/retrieveLogBizMemoRegistTab.jsp"/>
+    </definition>
+    <!-- <definition name="ngs/log/retrieveLogBizRequestRegPopup" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/log/retrieveLogBizRequestRegForm.jsp"/>
+    </definition> -->
+    <definition name="ngs/log/retrieveLogBizRequestRegPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/log/retrieveLogBizRequestRegForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveSmplCmPopup.do" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/order/retrieveSmplCmPopup.jsp"/>
+    </definition>
+
+	<!-- CES -->
+    <definition name="ces/log/retrieveLogBizRequestRegPopup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/log/retrieveLogBizRequestRegForm.jsp"/>
+    </definition>
+    <definition name="ces/order/retrieveCesOrdRegAddOrdPopup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/order/retrieveCesOrdRegAddOrdForm.jsp"/>
+    </definition>
+    <definition name="ces/order/retrieveCesOrdInqireGnrlDetailPopup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/order/retrieveCesOrdInqireGnrlDetailForm.jsp"/>
+    </definition>
+    <definition name="ces/order/retrieveCesOrdResultCmmtPopup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/order/retrieveCesOrdResultCmmtForm.jsp"/>
+    </definition>
+    <definition name="ces/order/retrieveCesOrdPreSmplPopup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/order/retrieveCesOrdPreSmplForm.jsp"/>
+    </definition>
+
+    <!-- Chip -->
+    <definition name="chp/log/retrieveLogBizRequestRegPopup" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/log/retrieveLogBizRequestRegForm.jsp"/>
+    </definition>
+
+    <!-- CSS Guide -->
+    <definition name="sample/cssGuide/retrieveCssGuide2" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/sample/cssGuide/retrieveCssGuide2.jsp"/>
+    </definition>
+    <definition name="sample/cssGuide/retrieveCssGuide3" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/sample/cssGuide/retrieveCssGuide3.jsp"/>
+    </definition>
+	<!--### 예외 ###-->
+
+	<!--### Layout 적용 ###-->
+	<!-- 컨텐츠페이지 설정 -->
+    <definition name="com/frame/error/*"  extends="layout-error">
+        <put-attribute name="body" value="/WEB-INF/jsp/com/frame/error/{1}.jsp"/>
+    </definition>
+    <definition name="com/frame/error/*Popup"  extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/com/frame/error/{1}.jsp"/>
+    </definition>
+    <definition name="*/*Tab" extends="layout-tab">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}Tab.jsp"/>
+    </definition>
+    <definition name="*/*/*Tab" extends="layout-tab">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}Tab.jsp"/>
+    </definition>
+    <definition name="*/*Template" extends="layout-template">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}Template.jsp"/>
+    </definition>
+    <definition name="*/*/*Template" extends="layout-template">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}Template.jsp"/>
+    </definition>
+
+    <!-- CES Popup  -->
+    <definition name="ces/gene/*Popup" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/gene/{1}Popup.jsp"/>
+    </definition>
+    <definition name="ces/*Popup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/{1}Popup.jsp"/>
+    </definition>
+    <definition name="ces/*/*Popup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/{1}/{2}Popup.jsp"/>
+    </definition>
+    <definition name="ces/*/*/*Popup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ces/{1}/{2}/{3}Popup.jsp"/>
+    </definition>
+
+	<!-- CES Main -->
+    <definition name="ces/gene/*" extends="layout-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ces/gene/{1}.jsp"/>
+    </definition>
+    <definition name="ces/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ces/{1}.jsp"/>
+    </definition>
+    <definition name="ces/*/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ces/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="ces/*/*/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ces/{1}/{2}/{3}.jsp"/>
+    </definition>
+
+    <!-- NGS Popup  -->
+    <!-- <definition name="ngs/gene/*Popup" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/gene/{1}Popup.jsp"/>
+    </definition>
+    <definition name="ngs/*Popup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/{1}Popup.jsp"/>
+    </definition>
+    <definition name="ngs/*/*Popup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/{1}/{2}Popup.jsp"/>
+    </definition>
+    <definition name="ngs/*/*/*Popup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/{1}/{2}/{3}Popup.jsp"/>
+    </definition> -->
+
+    <!-- NGS Main -->
+    <!-- <definition name="ngs/*" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/{1}.jsp"/>
+    </definition>
+    <definition name="ngs/*/*" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="ngs/*/*/*" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/{1}/{2}/{3}.jsp"/>
+    </definition> -->
+
+    <!-- Microarray Popup  -->
+    <!-- <definition name="chp/gene/*Popup" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/gene/{1}Popup.jsp"/>
+    </definition>
+    <definition name="chp/*Popup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/{1}Popup.jsp"/>
+    </definition>
+    <definition name="chp/*/*Popup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/{1}/{2}Popup.jsp"/>
+    </definition>
+    <definition name="chp/*/*/*Popup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/{1}/{2}/{3}Popup.jsp"/>
+    </definition> -->
+
+    <!-- Microarray Main -->
+    <!-- <definition name="chp/*" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/{1}.jsp"/>
+    </definition>
+    <definition name="chp/*/*" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="chp/*/*/*" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/{1}/{2}/{3}.jsp"/>
+    </definition> -->
+
+	<!-- CES,NGS 외 적용 페이지 Popup -->
+    <definition name="isr/com/retrieveIsrRgstFormPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/isr/com/retrieveIsrRgstFormPopup.jsp"/>
+    </definition>
+    <definition name="isr/com/retrieveIsrDetailPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/isr/com/retrieveIsrDetailPopup.jsp"/>
+    </definition>
+    <definition name="isr/com/retrieveIsrRefPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/isr/com/retrieveIsrRefPopup.jsp"/>
+    </definition>
+
+	<!-- CES,NGS 외 적용 페이지 Main -->
+    <definition name="com/xlog/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/com/xlog/{1}.jsp"/>
+    </definition>
+    <definition name="isr/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/isr/{1}.jsp"/>
+    </definition>
+    <definition name="isr/*/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/isr/{1}/{2}.jsp"/>
+    </definition>
+
+    <!-- 고객/회계 페이지-->
+	<definition name="acc/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/acc/{1}.jsp"/>
+    </definition>
+    <definition name="acc/*/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/acc/{1}/{2}.jsp"/>
+    </definition>
+	<definition name="cus/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/cus/{1}.jsp"/>
+    </definition>
+    <definition name="cus/*/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/cus/{1}/{2}.jsp"/>
+    </definition>
+
+    <definition name="acc/accnt/retrieveAccntUpdatePopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/accnt/retrieveAccntUpdatePopup.jsp"/>
+    </definition>
+    <definition name="acc/accnt/retrieveAccntPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/accnt/retrieveAccntPopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccBillPdfHistPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccBillPdfHistPopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccBillUnclMailSendListPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccBillUnclMailSendListPopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccBillMutiInvoicePopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccBillMutiInvoicePopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccBillDpstCnfmPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccBillDpstCnfmPopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccBillPymnPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccBillPymnPopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccBillDtlPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccBillDtlPopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccPpmBillRgsnPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccPpmBillRgsnPopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccPpmBillBrcdPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccPpmBillBrcdPopup.jsp"/>
+    </definition>
+    <definition name="acc/bill/retrieveAccPpmBillDtlPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/bill/retrieveAccPpmBillDtlPopup.jsp"/>
+    </definition>
+    <definition name="acc/coupon/retrieveCouponPromoUsePopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/coupon/retrieveCouponPromoUsePopup.jsp"/>
+    </definition>
+    <definition name="acc/coupon/retrieveCouponPromoRegistPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/coupon/retrieveCouponPromoRegistPopup.jsp"/>
+    </definition>
+    <definition name="acc/coupon/retrievePromoAplyUnprSetupPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/coupon/retrievePromoAplyUnprSetupPopup.jsp"/>
+    </definition>
+    <definition name="acc/erpLnkg/retrieveAccBillErpLnkgPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/erpLnkg/retrieveAccBillErpLnkgPopup.jsp"/>
+    </definition>
+    <definition name="acc/erpLnkg/retrieveErpControlPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/erpLnkg/retrieveErpControlPopup.jsp"/>
+    </definition>
+    <definition name="acc/estmt/retrieveEstimateSendMailPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/estmt/retrieveEstimateSendMailPopup.jsp"/>
+    </definition>
+    <definition name="acc/estmt/retrieveEstimateReqRegistPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/estmt/retrieveEstimateReqRegistPopup.jsp"/>
+    </definition>
+    <definition name="acc/estmt/retrieveEstimateRegistPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/estmt/retrieveEstimateRegistPopup.jsp"/>
+    </definition>
+    <definition name="acc/intgr/retrieveOrdSourcePopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/intgr/retrieveOrdSourcePopup.jsp"/>
+    </definition>
+    <definition name="acc/item/retrieveItemListPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/item/retrieveItemListPopup.jsp"/>
+    </definition>
+    <definition name="acc/logis/retrieveOrdPrdctnCnfrmPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/logis/retrieveOrdPrdctnCnfrmPopup.jsp"/>
+    </definition>
+    <definition name="acc/mileage/retrieveMlgGoodOrdTrackingPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/mileage/retrieveMlgGoodOrdTrackingPopup.jsp"/>
+    </definition>
+    <definition name="acc/mileage/retrieveEmployMileagePopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/mileage/retrieveEmployMileagePopup.jsp"/>
+    </definition>
+    <definition name="acc/pdf/retrieveAccPrdctnPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/pdf/retrieveAccPrdctnPopup.jsp"/>
+    </definition>
+    <definition name="acc/shpm/retrieveOrdShpmInfoBndlChngPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/shpm/retrieveOrdShpmInfoBndlChngPopup.jsp"/>
+    </definition>
+    <definition name="acc/shpm/retrieveOrdShpmCnfrmPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/shpm/retrieveOrdShpmCnfrmPopup.jsp"/>
+    </definition>
+    <definition name="acc/unpr/retrieveUnprGropListPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/unpr/retrieveUnprGropListPopup.jsp"/>
+    </definition>
+    <definition name="acc/unpr/retrieveUnprGropPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/acc/unpr/retrieveUnprGropPopup.jsp"/>
+    </definition>
+
+    <definition name="cus/bond/retrieveCstmerBondCmPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/bond/retrieveCstmerBondCmPopup.jsp"/>
+    </definition>
+
+    <definition name="cus/cstmr/retrieveCstmrPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/cstmr/retrieveCstmrPopup.jsp"/>
+    </definition>
+    <definition name="cus/cstmr/retrieveCstmrAddInfoPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/cstmr/retrieveCstmrAddInfoPopup.jsp"/>
+    </definition>
+    <definition name="cus/cstmr/retrieveCstmrEmilPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/cstmr/retrieveCstmrEmilPopup.jsp"/>
+    </definition>
+    <definition name="cus/profsr/retrieveProfsrEtcChprCmPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/profsr/retrieveProfsrEtcChprCmPopup.jsp"/>
+    </definition>
+    <definition name="cus/profsr/retrieveProfsrGrdePopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/profsr/retrieveProfsrGrdePopup.jsp"/>
+    </definition>
+    <definition name="cus/profsr/retrieveProfsrPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/profsr/retrieveProfsrPopup.jsp"/>
+    </definition>
+    <definition name="cus/profsr/retrieveProfsrUnclBondMngtChgPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/profsr/retrieveProfsrUnclBondMngtChgPopup.jsp"/>
+    </definition>
+    <definition name="cus/profsr/retrieveProfsrUnclBondMngtChgPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/profsr/retrieveProfsrUnclBondMngtChgPopup.jsp"/>
+    </definition>
+    <definition name="cus/profsr/retrieveProfsrPpmGrpPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/profsr/retrieveProfsrPpmGrpPopup.jsp"/>
+    </definition>
+    <definition name="cus/com/retrieveCodeSelectPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/com/retrieveCodeSelectPopup.jsp"/>
+    </definition>
+    <definition name="cus/profsr/retrievePpmTnfPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/profsr/retrievePpmTnfPopup.jsp"/>
+    </definition>
+
+
+    <definition name="com/user/retrieveEmployeePopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/com/user/retrieveEmployeePopup.jsp"/>
+    </definition>
+    <definition name="isr/retrieveOpsPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/isr/retrieveOpsPopup.jsp"/>
+    </definition>
+
+    <definition name="com/batchjob/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/com/batchjob/{1}.jsp"/>
+    </definition>
+
+    <definition name="com/batchjob/retrieveBatchJobDtlHistPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/com/batchjob/retrieveBatchJobDtlHistPopup.jsp"/>
+    </definition>
+    <definition name="com/batchjob/retrieveQuartzRegistPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/com/batchjob/retrieveQuartzRegistPopup.jsp"/>
+    </definition>
+	<!-- ** -->
+    <definition name="/com/mailSms/retrieveMailSenderPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/com/mailSms/retrieveMailSenderPopup.jsp"/>
+    </definition>
+
+	<!-- Oligo -->
+    <definition name="olg/*/*Popup" extends="layout-ces-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/olg/{1}/{2}Popup.jsp"/>
+    </definition>
+    <definition name="olg/*/*" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/olg/{1}/{2}.jsp"/>
+    </definition>
+
+
+    <!-- 나머지 모든 페이지 Popup -->
+    <definition name="*/*Popup" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}Popup.jsp"/>
+    </definition>
+    <definition name="*/*/*Popup" extends="layout-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}Popup.jsp"/>
+    </definition>
+
+    <!-- 나머지 모든 페이지 Main -->
+    <definition name="*/*" extends="layout-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="*/*/*" extends="layout-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp"/>
+    </definition>
+    <definition name="*/*/*/*" extends="layout-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}.jsp"/>
+    </definition>
+   	<!--### Layout 적용 ###-->
+
+
+
+
+
+   	<!-- NGS 업데이트 진행 임시 사용 구간 -->
+   	<!-- Main -->
+   	<!-- Master Data -->
+    <definition name="ngs/setup/retrievePerformCodeMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrievePerformCodeMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveLibraryCodeMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveLibraryCodeMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrievePlatformMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrievePlatformMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveEqtbOprMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveEqtbOprMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveWarehouseMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveWarehouseMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveQuotationItemListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveQuotationItemListForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveQuotationItemBomListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveQuotationItemBomListForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveCriteriaMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveCriteriaMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveSSBaitMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveSSBaitMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveAnalysisInfoMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveAnalysisInfoMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveSpeciesMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveSpeciesMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveIndexMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveIndexMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retreiveReslDltnMntrngForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retreiveReslDltnMntrngForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retreiveMgtCustForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retreiveMgtCustForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retreiveDltnHoldCustForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retreiveDltnHoldCustForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveApplicationMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveApplicationMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrievePrimerRgstForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrievePrimerRgstForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrievePdctDescMpngForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrievePdctDescMpngForm.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveEmilCharger" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/setup/retrieveEmilCharger.jsp"/>
+    </definition>
+
+    <!-- Order -->
+    <definition name="ngs/order/retrieveQuotationListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveQuotationListForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdRqstForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdRqstForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsSmplForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsSmplForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdFormTest" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdFormTest.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdSmplInfoHndvForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdSmplInfoHndvForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdSmplInfoTkovForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdSmplInfoTkovForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdRceptForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdRceptForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsResrveManageForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsResrveManageForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsReSmplReqManageForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsReSmplReqManageForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrievePrjcListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrievePrjcListForm.jsp"/>
+    </definition>
+    <definition name="ngs/reportCreate/retrieveAnalysisReportListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/reportCreate/retrieveAnalysisReportListForm.jsp"/>
+    </definition>
+
+    <!-- Sample -->
+    <definition name="ngs/sample/retrieveWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrieveWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrieveWorksheetListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrieveWorksheetListForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrievePrepWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrievePrepWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrievePrepWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrievePrepWorkForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrieveQcWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrieveQcWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrieveQcWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrieveQcWorkForm.jsp"/>
+    </definition>
+
+    <!-- Library -->
+    <definition name="ngs/library/retrieveWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveWorksheetListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveWorksheetListForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveProductWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveProductWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveProductWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveProductWorkForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveQcWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveQcWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveQcWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveQcWorkForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveExomeWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveExomeWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveExomeWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveExomeWorkForm.jsp"/>
+    </definition>
+
+    <!-- HumanID QC -->
+    <definition name="ngs/human/retrieveWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/human/retrieveWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/human/retrieveAnalysisMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/human/retrieveAnalysisMgtForm.jsp"/>
+    </definition>
+    <definition name="ngs/human/retrieveSampleMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/human/retrieveSampleMgtForm.jsp"/>
+    </definition>
+
+    <!-- Amplification -->
+    <definition name="ngs/amplification/retrieveNgsAmplificationNormalizationForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationNormalizationForm.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationHiSeqForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationHiSeqForm.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationMiSeqForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationMiSeqForm.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationHiSeqWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationHiSeqWorkForm.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationPacbioForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationPacbioForm.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationPacbioWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationPacbioWorkForm.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationSequelTwoForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationSequelTwoForm.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationSequelTwoWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationSequelTwoWorkForm.jsp"/>
+    </definition>
+
+    <!-- Instrument Plate -->
+	<definition name="ngs/instrumentPlate/retrieveNgsInstrumentPlateHiSeqForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/instrumentPlate/retrieveNgsInstrumentPlateHiSeqForm.jsp"/>
+    </definition>
+    <definition name="ngs/instrumentPlate/retrieveNgsInstrumentPlatePacbioForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/instrumentPlate/retrieveNgsInstrumentPlatePacbioForm.jsp"/>
+    </definition>
+
+    <!-- Demultiplexing -->
+	<definition name="ngs/demulti/retrieveHiSeqReportForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/demulti/retrieveHiSeqReportForm.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrievePackBioReportForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/demulti/retrievePackBioReportForm.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrieveIssacReportForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/demulti/retrieveIssacReportForm.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrieveDeMultiResrveForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/demulti/retrieveDeMultiResrveForm.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retireveYieldCheckForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/demulti/retireveYieldCheckForm.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrieveDeMultiWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/demulti/retrieveDeMultiWaitForm.jsp"/>
+    </definition>
+
+    <!-- Analysis -->
+    <definition name="ngs/anly/retrieveAnalysisWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/anly/retrieveAnalysisWaitForm.jsp"/>
+    </definition>
+    <definition name="ngs/anly/retrieveAnalysisWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/anly/retrieveAnalysisWorkForm.jsp"/>
+    </definition>
+
+    <!-- LOG -->
+    <definition name="ngs/log/retrieveLogBizRequestMgrForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/log/retrieveLogBizRequestMgrForm.jsp"/>
+    </definition>
+    <definition name="ngs/log/retrieveLogBizMemoForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/log/retrieveLogBizMemoForm.jsp"/>
+    </definition>
+
+    <!-- Report -->
+    <definition name="ngs/report/retrieveOrdLibOtdStatForm2" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveOrdLibOtdStatForm2.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveOrdLibOtdManageForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveOrdLibOtdManageForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrievePerformBasicInfoForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrievePerformBasicInfoForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveQcResultForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveQcResultForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveLibSeqResultForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveLibSeqResultForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveLaneSeqResultForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveLaneSeqResultForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveUsedRawPrdByOrdManageForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveUsedRawPrdByOrdManageForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveWesStatsForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveWesStatsForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveNgsRunRewardManageForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveNgsRunRewardManageForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveEqtbStatForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveEqtbStatForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveEqtbListSnOprForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveEqtbListSnOprForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveNewCustomerListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveNewCustomerListForm.jsp"/>
+    </definition>
+    <definition name="ngs/report/retrieveNgsDataProvisionForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/report/retrieveNgsDataProvisionForm.jsp"/>
+    </definition>
+
+
+
+	<!-- Popup -->
+    <!-- Master Data -->
+    <definition name="ngs/setup/retrieveQuotationItemGroupListPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/setup/retrieveQuotationItemGroupListPopup.jsp"/>
+    </definition>
+	<definition name="ngs/setup/retrieveCategoryMgtPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/setup/retrieveCategoryMgtPopup.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retreiveReslDltnHstrPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/setup/retreiveReslDltnHstrPopup.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retreiveMgtCustHstrPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/setup/retreiveMgtCustHstrPopup.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retreiveDltnHoldCustHstrPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/setup/retreiveDltnHoldCustHstrPopup.jsp"/>
+    </definition>
+    <definition name="ngs/setup/retrieveApplicationHstrPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/setup/retrieveApplicationHstrPopup.jsp"/>
+    </definition>
+
+    <!-- Order -->
+    <definition name="ngs/order/retrieveNgsReSmplPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/order/retrieveNgsReSmplPopup.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsResrveManagePopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/order/retrieveNgsResrveManagePopup.jsp"/>
+    </definition>
+
+
+    <!-- Sample -->
+    <!-- Library -->
+    <!-- HumanID QC -->
+
+    <!-- Amplification -->
+    <definition name="ngs/amplification/retrieveNgsAmplificationHiSeqPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationHiSeqPopup.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationRatePopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationRatePopup.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationMiSeqPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationMiSeqPopup.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationPacbioPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationPacbioPopup.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationPacbioWorkPlatePopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationPacbioWorkPlatePopup.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationSequelTwoPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationSequelTwoPopup.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationSequelTwoWorkPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationSequelTwoWorkPopup.jsp"/>
+    </definition>
+    <definition name="ngs/amplification/retrieveNgsAmplificationHiSeqWorkPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/amplification/retrieveNgsAmplificationHiSeqWorkPopup.jsp"/>
+    </definition>
+
+    <!-- Instrument Plate -->
+    <!-- <definition name="ngs/instrumentPlate/retrieveNgsInstrumentPlateHiSeqPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/instrumentPlate/retrieveNgsInstrumentPlateHiSeqPopup.jsp"/>
+    </definition> -->
+
+    <!-- Demultiplexing -->
+    <definition name="ngs/demulti/retrieveHiSeqPartExportPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/demulti/retrieveHiSeqPartExportPopup.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrieveIssacRportPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/demulti/retrieveIssacRportPopup.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrieveYieldCheckHiSeqPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/demulti/retrieveYieldCheckHiSeqPopup.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrieveYieldCheckPacBioPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/demulti/retrieveYieldCheckPacBioPopup.jsp"/>
+    </definition>
+
+    <!-- Analysis -->
+    <definition name="ngs/anly/retrieveAnalysisWaitPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/anly/retrieveAnalysisWaitPopup.jsp"/>
+    </definition>
+    <definition name="ngs/anly/retrieveAnalysisWaitReproductPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/anly/retrieveAnalysisWaitReproductPopup.jsp"/>
+    </definition>
+    <definition name="ngs/anly/retrieveAnlyWorkPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/anly/retrieveAnlyWorkPopup.jsp"/>
+    </definition>
+
+    <!-- LOG -->
+    <!-- <definition name="ngs/log/retrieveLogBizRequestRegPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/log/retrieveLogBizRequestRegPopup.jsp"/>
+    </definition> -->
+
+    <!-- Report -->
+
+
+    <!-- 공용 팝업 -->
+    <definition name="com/user/retrieveUserPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/com/user/retrieveUserPopup.jsp"/>
+    </definition>
+    <definition name="com/file/fileUpDownloadPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/com/file/fileUpDownloadPopup.jsp"/>
+    </definition>
+    <!-- Order에서 추가 -->
+    <definition name="cus/cstmr/retrieveCstmrAddInfoPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/cus/cstmr/retrieveCstmrAddInfoPopup.jsp"/>
+    </definition>
+    <definition name="ngs/com/retrieveNgsOrdRqstPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveNgsOrdRqstPopup.jsp"/>
+    </definition>
+    <definition name="ngs/log/retrieveResrvePrefacePopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/log/retrieveResrvePrefacePopup.jsp"/>
+    </definition>
+     <!-- Sample에서 추가 -->
+    <definition name="ngs/com/retrieveOrdLibOtdPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveOrdLibOtdPopup.jsp"/>
+    </definition>
+    <definition name="ngs/com/retrievePerformUnusualPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrievePerformUnusualPopup.jsp"/>
+    </definition>
+    <!-- Library에서 추가 -->
+    <definition name="com/mailSms/retrieveEmailSmsSndPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/com/mailSms/retrieveEmailSmsSndPopup.jsp"/>
+    </definition>
+    <!-- Analysis에서 추가 -->
+    <definition name="com/code/retrieveCodeConfigPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/com/code/retrieveCodeConfigPopup.jsp"/>
+    </definition>
+
+    <!-- Order 상세페이지에서 추가 -->
+    <definition name="com/file/excelImportForm" extends="layout-ces-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/com/file/excelImportForm.jsp"/>
+    </definition>
+    <definition name="com/file/excelImportPopup" extends="layout-popup">
+        <put-attribute name="header" value="/WEB-INF/jsp/com/frame/tiles/ces/menu/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/com/file/excelImportPopup.jsp"/>
+    </definition>
+    <definition name="ngs/com/retrievePrjcPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrievePrjcPopup.jsp"/>
+    </definition>
+    <definition name="ngs/com/retrieveQuotationItemListPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveQuotationItemListPopup.jsp"/>
+    </definition>
+    <definition name="ngs/com/retrieveNgsSmplRcptInfoPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveNgsSmplRcptInfoPopup.jsp"/>
+    </definition>
+    <definition name="ngs/com/retrieveNgsSpeciesPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveNgsSpeciesPopup.jsp"/>
+    </definition>
+    <!-- Sample 상세페이지에서 추가 -->
+    <definition name="ngs/com/retrieveBoxNoPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveBoxNoPopup.jsp"/>
+    </definition>
+    <definition name="ngs/com/retrieveImageUploadPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveImageUploadPopup.jsp"/>
+    </definition>
+    <definition name="com/code/retrieveCodePopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/com/code/retrieveCodePopup.jsp"/>
+    </definition>
+    <definition name="ngs/com/retrieveFileListPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveFileListPopup.jsp"/>
+    </definition>
+    <!-- Library 상세페이지에서 추가 -->
+    <definition name="ngs/com/retrieveIndexPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveIndexPopup.jsp"/>
+    </definition>
+    <!-- Demulti 상세페이지에서 추가 -->
+    <definition name="ngs/com/retrievePreDemultiResultPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrievePreDemultiResultPopup.jsp"/>
+    </definition>
+
+
+
+
+
+	<!-- 2022 상세페이지 추가 작업 -->
+    <!-- order 상세페이지 -->
+    <definition name="ngs/order/retrieveOrdSearchDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveOrdSearchDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdRceptDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdRceptDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveQuotationCteateForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveQuotationCteateForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdRegistForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdRegistForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsOrdRqstRegistForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsOrdRqstRegistForm.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveNgsReSmplReqProcesForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/order/retrieveNgsReSmplReqProcesForm.jsp"/>
+    </definition>
+    <definition name="ngs/log/retrieveLogBizRequestRegForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/log/retrieveLogBizRequestRegForm.jsp"/>
+    </definition>
+    <definition name="ngs/log/retrieveCommonUseWordPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/log/retrieveCommonUseWordPopup.jsp"/>
+    </definition>
+    <definition name="ngs/order/retrieveIndexChangePopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/order/retrieveIndexChangePopup.jsp"/>
+    </definition>
+
+    <!-- sample 상세페이지 -->
+    <definition name="ngs/sample/retrieveWorksheetDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrieveWorksheetDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrievePrepDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrievePrepDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrievePrepWorkDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrievePrepWorkDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrieveQcDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrieveQcDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrieveQcWorkDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/sample/retrieveQcWorkDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/sample/retrieveWorksheetWellPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/sample/retrieveWorksheetWellPopup.jsp"/>
+    </definition>
+
+    <!-- Library 상세페이지 -->
+    <definition name="ngs/library/retrieveWorksheetDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveWorksheetDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveProductDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveProductDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveProductWorkDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveProductWorkDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveQcDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveQcDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveQcWorkDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveQcWorkDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveExomeDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveExomeDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveExomeWorkDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/library/retrieveExomeWorkDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/library/retrieveWorksheetWellPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/library/retrieveWorksheetWellPopup.jsp"/>
+    </definition>
+
+    <!-- human 상세페이지 -->
+    <definition name="ngs/human/retrieveAnalysisDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/human/retrieveAnalysisDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/human/retrieveAnalysisRegPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/human/retrieveAnalysisRegPopup.jsp"/>
+    </definition>
+
+    <!-- Instrument 상세페이지 -->
+    <definition name="ngs/instrumentPlate/retrieveNgsInstrumentPlateHiSeqDtlForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/instrumentPlate/retrieveNgsInstrumentPlateHiSeqDtlForm.jsp"/>
+    </definition>
+    <definition name="ngs/instrumentPlate/retrieveNgsInstrumentPlatePacbioDtlForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/instrumentPlate/retrieveNgsInstrumentPlatePacbioDtlForm.jsp"/>
+    </definition>
+    <definition name="ngs/instrumentPlate/retrieveNgsInstrumentPlateSequelTwoDtlForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/instrumentPlate/retrieveNgsInstrumentPlateSequelTwoDtlForm.jsp"/>
+    </definition>
+
+    <!-- Demulti 상세페이지 -->
+    <definition name="ngs/demulti/retrieveHiSeqDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/demulti/retrieveHiSeqDetailForm.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrievetHiSeqIndexChangePopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/demulti/retrievetHiSeqIndexChangePopup.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrievetHiSeqCreateImportPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/demulti/retrievetHiSeqCreateImportPopup.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrievetHiSeqImprtUknwnPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/demulti/retrievetHiSeqImprtUknwnPopup.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrieveIssacDataForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/demulti/retrieveIssacDataForm.jsp"/>
+    </definition>
+    <definition name="ngs/demulti/retrieveIssacConfirmPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/demulti/retrieveIssacConfirmPopup.jsp"/>
+    </definition>
+
+    <!-- LOG 상세페이지 -->
+    <definition name="ngs/log/retrieveLogBizRequestDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/log/retrieveLogBizRequestDetailForm.jsp"/>
+    </definition>
+
+    <!-- order 리포트. reportCreate 상세페이지 -->
+    <definition name="ngs/reportCreate/retrieveReportProductRequestForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/reportCreate/retrieveReportProductRequestForm.jsp"/>
+    </definition>
+    <definition name="ngs/reportCreate/retrieveAnalysisReportCreateForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/reportCreate/retrieveAnalysisReportCreateForm.jsp"/>
+    </definition>
+    <definition name="ngs/reportCreate/retrieveReportProductDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/ngs/reportCreate/retrieveReportProductDetailForm.jsp"/>
+    </definition>
+    <!-- order 리포트에서 팝업 추가 -->
+    <definition name="ngs/com/retrieveNgsOrdPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/ngs/com/retrieveNgsOrdPopup.jsp"/>
+    </definition>
+
+
+
+
+
+    <!-- PGS 업데이트 진행 임시 사용 구간 -->
+   	<!-- Main -->
+   	<!-- Master Data -->
+	<!-- <definition name="pgs/setup/retrievePgsChkItmMgt" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/pgs/setup/retrievePgsChkItmMgt.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsEmilCharger" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/pgs/setup/retrievePgsEmilCharger.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsSmplWhMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/pgs/setup/retrievePgsSmplWhMgtForm.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsTissueBoxNoPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/pgs/setup/retrievePgsTissueBoxNoPopup.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsSmplBoxNoPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/pgs/setup/retrievePgsSmplBoxNoPopup.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsSmplWhMgtSmplPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/pgs/setup/retrievePgsSmplWhMgtSmplPopup.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsRtpcrPlateMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/pgs/setup/retrievePgsRtpcrPlateMgtForm.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsBpMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/pgs/setup/retrievePgsBpMgtForm.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsCalendarMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/pgs/setup/retrievePgsCalendarMgtForm.jsp"/>
+    </definition>
+    <definition name="pgs/setup/retrievePgsCriteriaMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/pgs/setup/retrievePgsCriteriaMgtForm.jsp"/>
+    </definition> -->
+
+
+
+
+
+    <!-- Micro 업데이트 진행 임시 사용 구간 -->
+   	<!-- Main -->
+   	<!-- Master Data -->
+   	<definition name="chp/setup/retrievePdctDescMpngForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrievePdctDescMpngForm.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveQuotationItemBomListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveQuotationItemBomListForm.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpQuotationItemForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveChpQuotationItemForm.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpQuotationItemGroupListPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/setup/retrieveChpQuotationItemGroupListPopup.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpAnalysisInfoMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveChpAnalysisInfoMgtForm.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpEmilCharger" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveChpEmilCharger.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpSmplWhMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveChpSmplWhMgtForm.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpSmplWhMgtSmplPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/setup/retrieveChpSmplWhMgtSmplPopup.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpFmtMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveChpFmtMgtForm.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpCriteriaMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveChpCriteriaMgtForm.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpReagntMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveChpReagntMgtForm.jsp"/>
+    </definition>
+    <definition name="chp/setup/retrieveChpProbeOrdMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/setup/retrieveChpProbeOrdMgtForm.jsp"/>
+    </definition>
+
+    <!-- Order -->
+    <definition name="chp/order/retrieveChpQuotationListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpQuotationListForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpQuotationCteateForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpQuotationCteateForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveEmailNoticeSndPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/order/retrieveEmailNoticeSndPopup.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdRegistForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdRegistForm.jsp"/>
+    </definition>
+    <definition name="chp/com/retrieveChpSmplRcptInfoPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/com/retrieveChpSmplRcptInfoPopup.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdRqstForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdRqstForm.jsp"/>
+    </definition>
+	<definition name="chp/order/retrieveChpOrdRqstRegistForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdRqstRegistForm.jsp"/>
+    </definition>
+    <definition name="chp/com/retrieveChpOrdRqstPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/com/retrieveChpOrdRqstPopup.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdSearchDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdSearchDetailForm.jsp"/>
+    </definition>
+    <definition name="chp/com/retrieveChpOrdRqstDetailPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/com/retrieveChpOrdRqstDetailPopup.jsp"/>
+    </definition>
+    <definition name="chp/log/retrieveLogBizRequestRegPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/log/retrieveLogBizRequestRegPopup.jsp"/>
+    </definition>
+    <definition name="chp/log/retrieveCommonUseWordPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/log/retrieveCommonUseWordPopup.jsp"/>
+    </definition>
+    <definition name="chp/com/retrieveChpQuotationItemListPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/com/retrieveChpQuotationItemListPopup.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdSmplTkovForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdSmplTkovForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdRcptForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdRcptForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdRcptDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdRcptDetailForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpBiOrdRegistForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpBiOrdRegistForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdHoldMgtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpOrdHoldMgtForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpOrdHoldMgtPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/order/retrieveChpOrdHoldMgtPopup.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpReportMgtListForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpReportMgtListForm.jsp"/>
+    </definition>
+    <definition name="chp/order/retrieveChpReportMgtDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/order/retrieveChpReportMgtDetailForm.jsp"/>
+    </definition>
+
+    <!-- Sample -->
+    <definition name="chp/sample/retrieveChpPrepWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/sample/retrieveChpPrepWaitForm.jsp"/>
+    </definition>
+    <definition name="chp/com/retrieveWorkSheetPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/com/retrieveWorkSheetPopup.jsp"/>
+    </definition>
+    <definition name="chp/com/retrieveWorkSheetHoldPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/com/retrieveWorkSheetHoldPopup.jsp"/>
+    </definition>
+    <definition name="chp/sample/retrieveChpPrepWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/sample/retrieveChpPrepWorkForm.jsp"/>
+    </definition>
+    <definition name="chp/sample/retrieveChpQcWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/sample/retrieveChpQcWaitForm.jsp"/>
+    </definition>
+    <definition name="chp/sample/retrieveChpQcWorkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/sample/retrieveChpQcWorkForm.jsp"/>
+    </definition>
+    <definition name="chp/sample/retrieveChpQcWorkDetailForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/sample/retrieveChpQcWorkDetailForm.jsp"/>
+    </definition>
+    <definition name="chp/com/retrieveWorkSelectPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/com/retrieveWorkSelectPopup.jsp"/>
+    </definition>
+
+    <!-- Product -->
+    <definition name="chp/product/retrieveProductWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/product/retrieveProductWaitForm.jsp"/>
+    </definition>
+    <definition name="chp/product/retrievePrdctWkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/product/retrievePrdctWkForm.jsp"/>
+    </definition>
+    <definition name="chp/com/retrieveChpReagntPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/com/retrieveChpReagntPopup.jsp"/>
+    </definition>
+    <definition name="chp/product/retrievePrdctQcWaitForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/product/retrievePrdctQcWaitForm.jsp"/>
+    </definition>
+    <definition name="chp/product/retrievePrdctQcWkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/product/retrievePrdctQcWkForm.jsp"/>
+    </definition>
+
+    <!-- Chip실험 -->
+    <definition name="chp/exper/retrieveExperWtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/exper/retrieveExperWtForm.jsp"/>
+    </definition>
+    <definition name="chp/exper/retrieveExperWkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/exper/retrieveExperWkForm.jsp"/>
+    </definition>
+    <definition name="chp/exper/retrieveChipDesignPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/exper/retrieveChipDesignPopup.jsp"/>
+    </definition>
+    <definition name="chp/exper/retrieveExperQcWtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/exper/retrieveExperQcWtForm.jsp"/>
+    </definition>
+    <definition name="chp/exper/retrieveExperQcWkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/exper/retrieveExperQcWkForm.jsp"/>
+    </definition>
+    <definition name="chp/exper/retrieveExperQcWkDtlForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/exper/retrieveExperQcWkDtlForm.jsp"/>
+    </definition>
+
+    <!-- Real-Time PCR -->
+    <definition name="chp/rtpcr/retrieveRtpcrWtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/rtpcr/retrieveRtpcrWtForm.jsp"/>
+    </definition>
+    <definition name="chp/rtpcr/retrieveRtpcrWkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/rtpcr/retrieveRtpcrWkForm.jsp"/>
+    </definition>
+    <definition name="chp/rtpcr/retrievePlateDesignPopup" extends="layout-ngs-popup">
+        <put-attribute name="body" value="/WEB-INF/jsp/chp/rtpcr/retrievePlateDesignPopup.jsp"/>
+    </definition>
+    <definition name="chp/rtpcr/retrieveRtpcrQcwtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/rtpcr/retrieveRtpcrQcwtForm.jsp"/>
+    </definition>
+    <definition name="chp/rtpcr/retrieveRtpcrQcWkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/rtpcr/retrieveRtpcrQcWkForm.jsp"/>
+    </definition>
+    <definition name="chp/rtpcr/retrieveRtpcrQcWkDtlForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/rtpcr/retrieveRtpcrQcWkDtlForm.jsp"/>
+    </definition>
+
+    <!-- Analysis -->
+    <definition name="chp/analysis/retrieveAnalyWtForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/analysis/retrieveAnalyWtForm.jsp"/>
+    </definition>
+    <definition name="chp/analysis/retrieveAnalyWkForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/analysis/retrieveAnalyWkForm.jsp"/>
+    </definition>
+
+    <!-- LOG -->
+    <definition name="chp/log/retrieveLogBizRequestMgrForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/log/retrieveLogBizRequestMgrForm.jsp"/>
+    </definition>
+    <definition name="chp/log/retrieveLogBizRequestMgrForm" extends="layout-ngs-main">
+        <put-attribute name="main" value="/WEB-INF/jsp/chp/log/retrieveLogBizRequestMgrForm.jsp"/>
+    </definition>
+
+
+</tiles-definitions>

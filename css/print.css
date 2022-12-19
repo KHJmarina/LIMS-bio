@@ -1,0 +1,107 @@
+@charset "utf-8";
+body{letter-spacing: 0px}
+/*바코드*/
+.pop_barcode{overflow:hidden;margin:40px;width:524px;font-size:12px;border:4px solid #ddd;border-radius:10px;box-sizing: border-box;}
+.pop_barcode .top{text-align:center;height:96px;color:transparent;font-size:0;background:#8CC63E url(../images/common/ci01.png) no-repeat 50% 50%;}
+.pop_barcode .cont{padding:20px 24px;}
+.pop_barcode .cont dl.addr dt{display:none;margin-bottom:7px;font-size:14px;font-weight: 700;color:#949494;}
+.pop_barcode .cont dl.addr dd{box-sizing: border-box;line-height: 20px;}
+.pop_barcode .cont dl.addr dd .tit{margin-right:8px;font-size:14px;font-weight: 700;color:#949494;}
+.pop_barcode .cont dl.addr dd em,
+.pop_barcode .ord_detail em,
+.pop_barcode .barcode_area em{font-weight:500 ;}
+.pop_barcode .ord_detail{padding:13px 15px;margin-top:40px;font-weight:300;background:#F5F5F5;border-radius: 8px;box-sizing: border-box;}
+.pop_barcode .barcode_area{margin-top:24px;text-align:center;}
+.pop_barcode .barcode_area span{display:block;}
+.pop_barcode .barcode_area em{margin-top:3px;display:block;font-size:14px;color:#000;}
+.eng .window_pop table.heightType2 th{padding:5px 20px 5px 30px !important;}
+@media print {
+	body{font-size:12px;}
+	img {max-width: 100% !important;}
+	@page {margin: 0cm;}					/*마진 패딩 무시 하고 cm 으로 */
+   	h2, h3 {page-break-after: avoid;}		/*텍스트 잘리지 않게*/
+	ul, img {page-break-inside: avoid;}		/*리스트 형식으로 연결된 내용 잘리지 않게*/
+	.nextpage{page-break-before: always;}	/*특정 요소부터 다음 페이지로 인쇄*/
+
+	/************** 특정요소 잘리지 않게 프린트 하는 css ***************/
+	.page-break-tr{page-break-inside:avoid;page-break-after: auto;	}	/*특정 요소 짤리지 않게 프린트 하기 class*/
+	#table_wrap > table,
+	table tr{page-break-inside:avoid;page-break-after: auto;}
+
+	.table_wrap table.view1 th,
+	#wrap table thead th{padding-right:6px !important;padding-left:6px !important;}
+	/*합성결과*/
+	.util,
+	.btn_box{display:none;}
+	/*바코드*/
+	.pop_barcode{width:340px;}
+	.pop_barcode .cont dl.addr dt{margin-bottom:-5px;}
+	.pop_barcode .cont{padding:10px 15px;}
+	.pop_barcode .barcode_area{margin-top:15px;}
+	.pop_barcode .barcode_area img{width:150px;}
+	.pop_barcode .top{height:70px;background-size: 180px auto;}
+	.pop_barcode .ord_detail{margin-top:10px;padding:5px 10px;font-size:10px;}
+
+	/*결과 프린트 폰트사이즈, 테이블 간격, th, td 높이 조정*/
+	.step_bar{margin-top:50px;height:55px;font-size:18px;}
+	.result2, .result3, .result4, .result5{page-break-before: always;}
+	.title_bar h4{margin-top:30px !important;font-size:18px;}
+	.table_wrap table.heightType2 td{height:50px;padding:0 !important;}
+	.table_wrap table.heightType2 th{padding-left:25px;line-height:16px !important;}
+	.table_wrap table.view1 th, .table_wrap table.view1 td,
+	.table_wrap table.view2 th, .table_wrap table.view2 td{height:40px !important;}
+	.table_wrap table.view1 td.nTd .nWrap table.hdTbl tbody th,
+	.table_wrap table.view1 td.nTd .nWrap table.hdTbl tbody td{height:30px !important;}
+
+	.step_bar{padding:0 25px;}
+	.window_pop .title_bar h4{margin: 50px 0 15px 0 !important;}
+
+	#wrap table thead th,
+	.eng .window_pop table.heightType2 th{line-height:16px !important;}
+
+	/*폰트사이즈*/
+	.table_wrap table.view1 th,
+	.table_wrap table.view1 td{font-size:12px !important;height:38px !important;}
+	.window_pop table th,
+	.window_pop table td,
+	.table_wrap table.heightType2 th,
+	.table_wrap table.heightType2 td{font-size:13px !important;line-height:16px !important;color:#000 !important;}
+	.window_pop .table_wrap table.heightType2 th,
+	.window_pop .table_wrap table.heightType2 td,
+	.table_wrap table.view2 th,
+	.table_wrap table.view2 td{font-size:13px !important;}
+	.eng .table_wrap table.heightType2 th.fontS{font-size:11px !important;}
+	.window_pop .toggle-wrap + .toggle-wrap{margin-top:0px;}
+	.window_pop .title_bar h4{margin:35px 0 15px 0 !important;}
+	.table_wrap table.heightType2 td#result2Advanced{padding:5px !important;font-size:11px !important;}
+
+	/*올리고 Primer Information 테이블 내부 작은 테이블 스타일*/
+	table.view1 td.nTd{padding:25px !important;}
+	.window_pop .nTd .nWrap table td.seq{padding:10px 15px !important;height:auto !important;height:35px !important;}
+	.table_wrap table.view1 td.nTd .nWrap table.hdTbl th,
+	.table_wrap table.view1 td.nTd .nWrap table.hdTbl td{height:35px !important;font-size:12px !important;}
+	.nTd .nWrap + .nWrap{margin-top:15px;}
+	.window_pop table.view1 th.left{padding-left:30px !important;}
+
+	.table_wrap table.view1 td,
+	.table_wrap table.heightType2 td.pd2{padding-right:15px !important;padding-left:15px !important;}
+	.table_wrap table.heightType2 td.left{padding-left:15px !important;}
+
+	.checkBox input[type='checkbox']:checked + i,
+	.checkBox input[type='checkbox'] + i{background-size:12px auto;}
+
+	/*My EZ-seq Setting*/
+	.rowBox .item{height:120px;}
+	.rowBox .item .name{font-size:14px;}
+	.rowBox .item .name1{font-size:18px;line-height:22px;}
+	#tubeDiv tr,
+	#plateDiv tr{page-break-inside:avoid;page-break-after: auto;} /*tr 잘리지 않게 인쇄하기*/
+
+}
+
+@media print and (color) {
+   * {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+   }
+}
